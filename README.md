@@ -1,204 +1,150 @@
-\# PDF to Word Images Converter
+# Converter PDF Word Images
 
+Herramienta desarrollada en Python para convertir automáticamente documentos PDF en archivos Word (.docx), preservando la apariencia visual original de cada página.
 
+El programa detecta automáticamente un archivo PDF en la misma carpeta donde se encuentra el script, convierte cada página en una imagen de alta resolución y genera un documento Word donde cada imagen ocupa una página completa.
 
-\## Overview
+---
 
+## Características
 
+* Detección automática de archivos PDF en el directorio de trabajo.
+* Conversión de cada página del PDF a imágenes PNG de alta resolución.
+* Generación automática de documentos Word (.docx).
+* Inserción de una página del PDF por cada página del documento Word.
+* Conservación de la apariencia visual original del documento.
+* Ajuste automático de las imágenes al tamaño de la hoja.
+* Uso del mismo nombre del PDF para generar el archivo Word resultante.
+* No requiere configuración manual de rutas.
 
-This project automatically converts a PDF document into a Microsoft Word document by transforming each PDF page into an image and inserting those images into a Word file.
+---
 
-
-
-The script is designed to work with any PDF placed in the same directory as the script, requiring no manual configuration of file paths.
-
-
-
-\## Features
-
-
-
-\* Automatically detects the first PDF file in the working directory.
-
-\* Converts every PDF page into a high-resolution PNG image.
-
-\* Creates a Word document automatically.
-
-\* Inserts one page image per Word page.
-
-\* Preserves the original appearance of the PDF pages.
-
-\* Automatically adjusts image size to fit the document page.
-
-\* Uses the original PDF filename for the generated Word document.
-
-
-
-\## Project Structure
-
-
+## Estructura del Proyecto
 
 ```text
-
-project-folder/
-
+converter-pdf-word-images/
 │
-
 ├── converter.py
-
-├── document.pdf
-
+├── documento.pdf
+├── documento.docx
 │
-
-├── document.docx
-
+├── assets/
+│   └── workflow.png
 │
+└── imagenes_temporales/
+    ├── pagina_001.png
+    ├── pagina_002.png
+    └── ...
+```
 
-└── imagenes\_temporales/
+---
 
+## Flujo de Trabajo
 
+![Flujo de trabajo](assets/workflow.png)
 
-## Workflow
+---
 
-![Workflow](assets/workflow.png)
+## Requisitos
 
+* Python 3.9 o superior
+* PyMuPDF
+* python-docx
+* Pillow
 
+---
 
-\## Requirements
+## Instalación
 
-
-
-\* Python 3.9+
-
-\* PyMuPDF
-
-\* python-docx
-
-\* Pillow
-
-
-
-\## Installation
-
-
-
-Install the required packages:
-
-
+Instalar las dependencias necesarias:
 
 ```bash
-
 pip install pymupdf python-docx pillow
-
 ```
 
-
-
-\## Usage
-
-
-
-Place the PDF file in the same folder as the script:
-
-
-
-```text
-
-converter.py
-
-my\_document.pdf
-
-```
-
-
-
-Run the script:
-
-
+O utilizando el archivo de requisitos:
 
 ```bash
+pip install -r requirements.txt
+```
 
+---
+
+## Uso
+
+Coloca el archivo PDF en la misma carpeta donde se encuentra el script:
+
+```text
+converter.py
+mi_documento.pdf
+```
+
+Ejecuta el programa:
+
+```bash
 python converter.py
-
 ```
 
-
-
-The generated Word document will appear in the same folder:
-
-
+Al finalizar, se generará automáticamente un documento Word en la misma carpeta:
 
 ```text
-
-my\_document.docx
-
+mi_documento.docx
 ```
 
+---
 
+## Funcionamiento
 
-\## How It Works
+El proceso realizado por el programa es el siguiente:
 
+1. Buscar automáticamente el primer archivo PDF disponible en el directorio actual.
+2. Convertir cada página del PDF en una imagen PNG.
+3. Crear un nuevo documento Word.
+4. Insertar las imágenes generadas en el documento, una por página.
+5. Guardar el archivo Word utilizando el mismo nombre que el PDF original.
 
+---
 
-1\. The script searches for the first PDF file in the current directory.
-
-2\. Each PDF page is converted into a PNG image.
-
-3\. A new Word document is created.
-
-4\. The images are inserted into the document, one per page.
-
-5\. The Word document is saved using the same name as the original PDF.
-
-
-
-\## Example Workflow
-
-
+## Resumen del Proceso
 
 ```text
-
-PDF File
-
-&#x20;   ↓
-
-Convert Pages to Images
-
-&#x20;   ↓
-
-Create Word Document
-
-&#x20;   ↓
-
-Insert Images
-
-&#x20;   ↓
-
-Generate DOCX
-
+Archivo PDF
+      │
+      ▼
+Conversión a imágenes PNG
+      │
+      ▼
+Creación del documento Word
+      │
+      ▼
+Inserción de imágenes
+      │
+      ▼
+Generación del archivo DOCX
 ```
 
+---
 
+## Tecnologías Utilizadas
 
-\## Technologies Used
+* Python
+* PyMuPDF
+* python-docx
+* Pillow
 
+---
 
+## Casos de Uso
 
-\* Python
+Este proyecto puede resultar útil para:
 
-\* PyMuPDF
+* Convertir PDFs escaneados a documentos Word conservando su formato visual.
+* Generar versiones DOCX de documentos académicos.
+* Automatizar procesos de digitalización documental.
+* Preparar documentos para edición o distribución en formato Word.
 
-\* python-docx
+---
 
-\* Pillow
+## Licencia
 
-
-
-\## License
-
-
-
-This project is available for educational and personal use.
-
-
-
+Este proyecto se distribuye con fines educativos, de aprendizaje y automatización de tareas.
