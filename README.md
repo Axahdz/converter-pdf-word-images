@@ -29,14 +29,7 @@ converter-pdf-word-images/
 ├── documento.docx
 │
 ├── assets/
-│   └── workflow.png
-│
-└── imagenes_temporales/
-    ├── pagina_001.png
-    ├── pagina_002.png
-    └── ...
-```
-
+    └── workflow.png
 ---
 
 ## Flujo de Trabajo
